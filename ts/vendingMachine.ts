@@ -1,0 +1,8 @@
+/**
+ * VendingMachine
+ */
+class VendingMachine {
+    constructor() {
+        
+    }
+}
