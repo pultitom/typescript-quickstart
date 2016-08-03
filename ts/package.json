@@ -4,7 +4,8 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "copyfiles": "^1.0.0",
-    "jquery": "^3.1.0"
+    "jquery": "^3.1.0",
+    "knockout": "^3.4.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -12,7 +13,8 @@
     "copyBootstrapFonts": "node_modules/copyfiles/copyfiles -f node_modules/bootstrap/dist/fonts/*.* ../fonts/",
     "copyBootstrapJs": "node_modules/copyfiles/copyfiles -f node_modules/bootstrap/dist/js/bootstrap.js ../js/vendors/",
     "copyjQuery": "node_modules/copyfiles/copyfiles -f node_modules/jquery/dist/jquery.js ../js/vendors/",
-    "bootstrap" : "npm run copyBootstrapCss && npm run copyBootstrapFonts && npm run copyBootstrapJs && npm run copyjQuery"
+    "copyKnockout": "node_modules/copyfiles/copyfiles -f node_modules/knockout/build/output/knockout-latest.debug.js ../js/vendors",
+    "bootstrap": "npm install && npm run copyBootstrapCss && npm run copyBootstrapFonts && npm run copyBootstrapJs && npm run copyjQuery && npm run copyKnockout"
   },
   "author": "Tomas"
 }
