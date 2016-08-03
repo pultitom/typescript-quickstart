@@ -1,6 +1,3 @@
-/**
- * Quarter
- */
 class Quarter {
     constructor() {
         
@@ -9,7 +6,7 @@ class Quarter {
     private value : number = 0.25;
 
     getImageUrl() : string {
-        return "img/coin.png";
+        return "img/quarter.png";
     }
 
     get Value() : number {

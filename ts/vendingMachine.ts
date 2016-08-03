@@ -3,12 +3,12 @@
 
 class VendingMachine {
 
-    private paid : number = 0;
+    private paid : any = ko.observable(0);
 
+    acceptedCoins : Quarter[] = [new Quarter()]; 
+    
     acceptCoin = (coin: Quarter) : void => {
-        this.paid  += coin.Value;
-
-        var element = document.getElementById('total');
-        element.innerHTML = this.paid.toString();
+        let oldTotal = this.paid();   // let has scope of block vs. var which has scope of function
+        this.paid(oldTotal + coin.Value);
     }
 }

@@ -17,12 +17,11 @@
             <h4>
                 <p>
                     Paid: $
-                    <span id="total"></span>
+                    <span data-bind="text: paid"></span>
                 </p>
-                <button class="btn btn-primary"
-                    onclick="machine.acceptCoin(new Quarter())">
-                    Insert coin
-                </button>
+                <div data-bind="foreach: acceptedCoins">
+                    <img data-bind="attr: { src: getImageUrl(), alt: value }, click: $parent.acceptCoin" />
+                </div>
             </h4>
         </div>
     </div>
