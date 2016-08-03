@@ -12,7 +12,18 @@
 <body>
     <div class="container">
         <h1>Vending machine</h1>
-        <div class="col-md-8"></div>
+        <div class="col-md-8" data-bind="foreach: cells">
+            <div class="col-md-4">
+               <div class="col-md-6">
+                   <img data-bind="attr: { src: product.category.getImageUrl(), alt: product.category.name }" />
+               </div>
+               <div class="col-md-6">
+                   <div data-bind="text: product.name"></div>
+                   <h3 data-bind="text: stock"></h3>
+                   <h4 data-bind="text: '$ ' + product.price"></h4>
+               </div>
+            </div>
+        </div>
         <div class="col-md-4">
             <h4>
                 <p>
