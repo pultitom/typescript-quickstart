@@ -20,7 +20,7 @@
                     <span data-bind="text: paid"></span>
                 </p>
                 <div data-bind="foreach: acceptedCoins">
-                    <img data-bind="attr: { src: getImageUrl(), alt: value }, click: $parent.acceptCoin" />
+                    <img data-bind="attr: { src: getImageUrl(), alt: value }, click: $parent.acceptCoin" style="cursor: pointer;" />
                 </div>
             </h4>
         </div>
