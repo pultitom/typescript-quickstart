@@ -1,4 +1,6 @@
 /// <reference path="quarter.ts" />
+/// <reference path="typings/knockout.d.ts" />
+/// <reference path="product.ts" />
 /// <reference path="productFactory.ts" />
 
 
@@ -21,7 +23,12 @@ class VendingMachine {
 
     private paid = ko.observable(0);
 
-    cells = ko.observableArray([]);
+    public cells = ko.observableArray([]);
+    selectedCell = ko.observable(new Cell(new CocaCola()));
+    
+    canPay = ko.pureComputed(() => {
+        return this.paid() - this.selectedCell().product.price >= 0;
+    });
 
     acceptedCoins : Quarter[] = [new Quarter()]; 
 
@@ -37,5 +44,22 @@ class VendingMachine {
     acceptCoin = (coin: Quarter) : void => {
         let oldTotal = this.paid();   // let has scope of block vs. var which has scope of function
         this.paid(oldTotal + coin.Value);
+    }
+
+    select = (cell: Cell) : void => {
+        cell.sold(false);
+        this.selectedCell(cell);
+    }
+
+    pay = () : void => {
+        if (this.selectedCell().stock() < 1) {
+            alert('Out of stock!');
+            return;
+        }
+        let currentPaid = this.paid();
+        this.paid(Math.round(((currentPaid - this.selectedCell().product.price)*100))/100);
+        let currentStock = this.selectedCell().stock();
+        this.selectedCell().stock(currentStock - 1);
+        this.selectedCell().sold(true);
     }
 }
