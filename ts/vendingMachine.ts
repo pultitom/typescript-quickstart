@@ -30,7 +30,7 @@ class VendingMachine {
         return this.paid() - this.selectedCell().product.price >= 0;
     });
 
-    acceptedCoins : Quarter[] = [new Quarter()]; 
+    acceptedCoins : Coin[] = [new Quarter(), new Dime()]; 
 
     set size(givenSize: VendingMachineSize) {
         this.cells([]);
