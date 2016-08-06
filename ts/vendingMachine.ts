@@ -1,4 +1,4 @@
-/// <reference path="quarter.ts" />
+/// <reference path="coin.ts" />
 /// <reference path="typings/knockout.d.ts" />
 /// <reference path="product.ts" />
 /// <reference path="productFactory.ts" />
