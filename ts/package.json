@@ -6,6 +6,7 @@
     "copyfiles": "^1.0.0",
     "jquery": "^3.1.0",
     "knockout": "^3.4.0",
+    "less": "^2.7.1",
     "requirejs": "^2.2.0"
   },
   "devDependencies": {},
@@ -16,7 +17,9 @@
     "copyjQuery": "node_modules/copyfiles/copyfiles -f node_modules/jquery/dist/jquery.js ../js/vendors/",
     "copyKnockout": "node_modules/copyfiles/copyfiles -f node_modules/knockout/build/output/knockout-latest.debug.js ../js/vendors",
     "copyRequirejs": "node_modules/copyfiles/copyfiles -f node_modules/requirejs/require.js ../js/vendors",
-    "bootstrap": "npm install && npm run copyBootstrapCss && npm run copyBootstrapFonts && npm run copyBootstrapJs && npm run copyjQuery && npm run copyKnockout && npm run copyRequirejs"
+    
+    "bootstrap": "npm install && npm run copyBootstrapCss && npm run copyBootstrapFonts && npm run copyBootstrapJs && npm run copyjQuery && npm run copyKnockout && npm run copyRequirejs",
+    "renderCss": "node_modules/less/bin/lessc ../less/project.less ../css/styles.css"
   },
   "author": "Tomas"
 }

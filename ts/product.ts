@@ -14,6 +14,6 @@ export class CocaCola implements IProduct {
 
 export class Sprite implements IProduct {
     name = "Sprite";
-    price = 2.30;
+    price = 2.35;
     category = new ProductCategory.SodaCategory();
 }

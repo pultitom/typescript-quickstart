@@ -1,5 +1,5 @@
 **/node_modules/
-/css/vendors/
+/css
 /js
 /fonts/
 **/npm-debug.log
