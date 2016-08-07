@@ -1,17 +1,18 @@
-/// <reference path="coin.ts" />
 /// <reference path="typings/knockout.d.ts" />
-/// <reference path="product.ts" />
-/// <reference path="productFactory.ts" />
+/// <reference path="typings/require.d.ts" />
 
+import * as Coins from "./coin";
+import { IProduct, CocaCola } from "./product"
+import getRandomProduct from "./productFactory" // this one is good. import the default function with any name
 
-enum VendingMachineSize {
+export enum VendingMachineSize {
     small = 6,
     medium = 9,
     large = 12
 }
 
-class Cell {
-    constructor(public product: CocaCola) {
+class Cell {  // no need to export this class, because it's only used inside the module
+    constructor(public product: IProduct) {
         
     }
 
@@ -19,7 +20,7 @@ class Cell {
     sold = ko.observable(false);
 }
 
-class VendingMachine {
+export class VendingMachine {
 
     private paid = ko.observable(0);
 
@@ -30,18 +31,18 @@ class VendingMachine {
         return this.paid() - this.selectedCell().product.price >= 0;
     });
 
-    acceptedCoins : Coin[] = [new Quarter(), new Dime()]; 
+    acceptedCoins : Coins.Coin[] = [new Coins.Quarter(), new Coins.Dime()]; 
 
     set size(givenSize: VendingMachineSize) {
         this.cells([]);
 
         for (var index = 0; index < givenSize; index++) {
-            let product = ProductFactory.GetProduct();
+            let product = getRandomProduct();
             this.cells.push(new Cell(product));
         }
     } 
     
-    acceptCoin = (coin: Quarter) : void => {
+    acceptCoin = (coin: Coins.Coin) : void => {
         let oldTotal = this.paid();   // let has scope of block vs. var which has scope of function
         this.paid(oldTotal + coin.Value);
     }

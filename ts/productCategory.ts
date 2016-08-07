@@ -4,3 +4,5 @@ class SodaCategory {
         return "img/soda_can_green.png";
     }
 }
+
+export { SodaCategory }

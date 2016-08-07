@@ -1,4 +1,4 @@
-abstract class Coin {
+export abstract class Coin {
 
     protected baseUrl : string = "img/";
 
@@ -12,7 +12,7 @@ abstract class Coin {
     abstract getImageUrl() : string;
 }
 
-class Quarter extends Coin {
+export class Quarter extends Coin {
 
     constructor(){
         super(0.25);
@@ -23,7 +23,7 @@ class Quarter extends Coin {
     }
 }
 
-class Dime extends Coin {
+export class Dime extends Coin {
 
     constructor(){
         super(0.10);
